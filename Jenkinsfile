@@ -6,7 +6,7 @@ pipeline {
     stages{
         stage('Build Maven'){
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ygminds73/devops-cicd.git']]])
+                git 'https://github.com/ankit-jagtap-devops/devops-cicd-ygminds.git'
                 sh 'mvn clean install'
             }
         }
