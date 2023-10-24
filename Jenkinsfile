@@ -13,7 +13,7 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t youngminds73/devops-integration .'
+                    sh 'docker build -t ankitjagtap/devops-integration .'
                 }
             }
         }
@@ -21,10 +21,10 @@ pipeline {
             steps{
                 script{
                    withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
-                   sh 'docker login -u youngminds73 -p ${dockerhubpwd}'
+                   sh 'docker login -u ankitjagtap -p ${dockerhubpwd}'
 
 }
-                   sh 'docker push youngminds73/devops-integration'
+                   sh 'docker push ankitjagtap/devops-integration'
                 }
             }
         }
